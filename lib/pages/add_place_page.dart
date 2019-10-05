@@ -34,7 +34,7 @@ class _AddPlacePageState extends State<AddPlacePage> {
                     SizedBox(height: 10),
                     ImageInput()
                   ]
-                ),
+                )
               )
             )
           ),
