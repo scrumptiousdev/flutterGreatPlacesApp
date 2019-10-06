@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../pages/add_place_page.dart';
+import '../pages/place_detail_page.dart';
 import '../providers/great_places.dart';
 
 class PlacesListPage extends StatelessWidget {
@@ -30,9 +31,9 @@ class PlacesListPage extends StatelessWidget {
               ),
               title: Text(greatPlaces.items[i].title),
               subtitle: Text(greatPlaces.items[i].location.address),
-              onTap: () {
-                
-              }
+              onTap: () => Navigator.of(context).pushNamed(PlaceDetailPage.routeName,
+                arguments: greatPlaces.items[i].id
+              )
             )
           ),
           child: Center(
