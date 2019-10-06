@@ -26,8 +26,11 @@ class PlacesListPage extends StatelessWidget {
           builder: (ctx, greatPlaces, ch) => greatPlaces.items.length <= 0 ? ch : ListView.builder(
             itemCount: greatPlaces.items.length,
             itemBuilder: (ctx, i) => ListTile(
-              leading: CircleAvatar(
-                backgroundImage: FileImage(greatPlaces.items[i].image)
+              leading: Hero(
+                tag: greatPlaces.items[i].id,
+                child: CircleAvatar(
+                  backgroundImage: FileImage(greatPlaces.items[i].image)
+                )
               ),
               title: Text(greatPlaces.items[i].title),
               subtitle: Text(greatPlaces.items[i].location.address),

@@ -21,9 +21,12 @@ class PlaceDetailPage extends StatelessWidget {
           Container(
             height: 250,
             width: double.infinity,
-            child: Image.file(
-              selectedPlace.image,
-              fit: BoxFit.cover
+            child: Hero(
+              tag: id,
+              child: Image.file(
+                selectedPlace.image,
+                fit: BoxFit.cover
+              )
             )
           ),
           SizedBox(height: 10),
