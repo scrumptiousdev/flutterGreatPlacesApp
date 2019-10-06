@@ -20,10 +20,21 @@ class GreatPlaces with ChangeNotifier {
     );
     _items.add(newPlace);
     notifyListeners();
-    DBHelper.insert('places', {
+    DBHelper.insert('user_places', {
       'id': newPlace.id,
       'title': newPlace.title,
       'image': newPlace.image.path
     });
+  }
+
+  Future<void> getPlaces() async {
+    final data = await DBHelper.get('user_places');
+    _items = data.map((place) => Place(
+      id: place['id'],
+      title: place['title'],
+      image: File(place['image']),
+      location: null
+    )).toList();
+    notifyListeners();
   }
 }
